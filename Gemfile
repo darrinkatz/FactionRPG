@@ -47,3 +47,10 @@ end
 gem 'rspec-rails', group: :test
 
 gem 'capybara', group: :test
+
+#gem 'pg'
+
+gem 'launchy', group: :test
+
+
+
