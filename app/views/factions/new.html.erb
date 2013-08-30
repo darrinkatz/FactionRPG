@@ -1,0 +1,20 @@
+<head>
+
+</head>
+<body>
+
+	create a faction
+
+	<%= form_for(@faction) do |f| %>
+
+  		<%= f.label :faction_name %>:
+  		<%= f.text_field :faction_name %><br />
+
+  		<%= f.label :player_email %>:
+  		<%= f.text_field :player_email %><br />
+
+		<%= f.submit %>
+
+	<% end %>
+
+</body>
