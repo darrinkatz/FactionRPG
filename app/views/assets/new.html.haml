@@ -1,0 +1,7 @@
+%h2 new asset for faction #{@faction.faction_name}
+
+= simple_form_for [@faction, @asset] do |f|
+  = f.input :name
+  = f.input :value
+  = f.input :covert
+  = f.submit "Submit Build"

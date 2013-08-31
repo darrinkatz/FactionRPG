@@ -1,0 +1,6 @@
+%h2 create a faction
+
+= simple_form_for(@faction) do |f|
+  = f.input :faction_name
+  = f.input :player_email
+  = f.submit

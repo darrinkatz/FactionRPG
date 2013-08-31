@@ -9,6 +9,9 @@ gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
+gem 'simple_form'
+gem 'haml'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -44,7 +47,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'rspec-rails', group: :test
+gem 'rspec-rails', group: [:test, :development]
 
 gem 'capybara', group: :test
 
@@ -52,5 +55,5 @@ gem 'capybara', group: :test
 
 gem 'launchy', group: :test
 
-
+gem 'pry-debugger', group: [:test, :development]
 
