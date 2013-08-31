@@ -47,7 +47,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'rspec-rails', group: :test
+gem 'rspec-rails', group: [:test, :development]
 
 gem 'capybara', group: :test
 
@@ -55,5 +55,5 @@ gem 'capybara', group: :test
 
 gem 'launchy', group: :test
 
-
+gem 'pry-debugger', group: [:test, :development]
 
