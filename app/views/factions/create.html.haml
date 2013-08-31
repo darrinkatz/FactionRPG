@@ -1,4 +1,10 @@
 %h2 Faction: #{@faction.faction_name}
 %h3 Player Email: #{@faction.player_email}
 
+- if @faction.assets.any?
+  %h3 Assets
+  %ul
+  - @faction.assets.each do |asset|
+    %li #{asset.value}-#{asset.name}#{" (covert)" if asset.covert}
+
 %p= link_to("create asset", new_faction_asset_path(@faction))
