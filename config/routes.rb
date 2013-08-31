@@ -1,6 +1,7 @@
 FactionRPG::Application.routes.draw do
 
-  resources :factions
-  resources :assets
+  resources :factions do
+    resources :assets
+  end
 
 end
