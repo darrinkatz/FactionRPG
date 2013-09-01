@@ -1,9 +1,10 @@
 development:
-  #host: localhost
-  #adapter: postgresql
-  #database: db/development
-  adapter: sqlite3
-  database: db/development.sqlite3
+  host: localhost
+  adapter: postgresql
+  encoding: unicode
+  database: db/development
+  #adapter: sqlite3
+  #database: db/development.sqlite3
   pool: 5
   timeout: 5000
 
@@ -11,19 +12,21 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  #host: localhost
-  #adapter: postgresql
-  #database: db/test
-  adapter: sqlite3
-  database: db/test.sqlite3
+  host: localhost
+  adapter: postgresql
+  encoding: unicode
+  database: db/test
+  #adapter: sqlite3
+  #database: db/test.sqlite3
   pool: 5
   timeout: 5000
 
 production:
-  #host: localhost
-  #adapter: postgresql
-  #database: db/production
-  adapter: sqlite3
-  database: db/production.sqlite3
+  host: localhost
+  adapter: postgresql
+  encoding: unicode
+  database: db/production
+  #adapter: sqlite3
+  #database: db/production.sqlite3
   pool: 5
   timeout: 5000
