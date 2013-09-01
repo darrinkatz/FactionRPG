@@ -51,7 +51,7 @@ gem 'rspec-rails', group: [:test, :development]
 
 gem 'capybara', group: :test
 
-#gem 'pg'
+gem 'pg'
 
 gem 'launchy', group: :test
 
