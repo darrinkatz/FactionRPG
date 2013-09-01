@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130829121532) do
+ActiveRecord::Schema.define(version: 20130831220533) do
+
+  create_table "assets", force: true do |t|
+    t.string   "name"
+    t.integer  "value"
+    t.boolean  "covert"
+    t.integer  "faction_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "factions", force: true do |t|
     t.string   "faction_name"
