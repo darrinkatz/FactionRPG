@@ -48,6 +48,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'rspec-rails', group: [:test, :development]
+gem 'factory_girl_rails', group: [:test, :development]
 
 gem 'capybara', group: :test
 
