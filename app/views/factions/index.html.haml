@@ -1,3 +1,11 @@
 %h2 factions
 
 %p= link_to("create faction", new_faction_path)
+
+- if current_turn = Turn.current
+  %p= link_to "Set orders", edit_turn_path(current_turn)
+  = simple_form_for current_turn, url: finalize_turn_path(current_turn) do |f|
+    = f.submit "Process Turn ##{current_turn.number}"
+- else
+  = simple_form_for Turn.new do |f|
+    = f.submit "Start Turn ##{Turn.count + 1}"
