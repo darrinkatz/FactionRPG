@@ -17,4 +17,14 @@ class Turn < ActiveRecord::Base
     end
     turn
   end
+
+  def as_json p=nil
+    order_hash = {}
+
+    orders.each do |order|
+      order_hash[order.id] = order.as_json
+    end
+
+    super.merge({ orders: order_hash })
+  end
 end

@@ -12,4 +12,13 @@ class Order < ActiveRecord::Base
       self.result = :failure
     end
   end
+
+  def as_json p=nil
+    {
+      asset:  asset.name,
+      action: type,
+      target: target.name,
+      result: result
+    }
+  end
 end
