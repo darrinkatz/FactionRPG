@@ -1,0 +1,9 @@
+= simple_form_for @turn do |f|
+  = f.simple_fields_for :orders do |subform|
+    .order
+      %h4 #{subform.object.asset.value}-#{subform.object.asset.name}
+      = subform.input :type, label: "Action", collection: Order::ACTION_TYPES
+      = subform.association :target, label_method: :to_s
+      - if subform.object.result
+        %p #{subform.object.result.capitalize}!
+  = f.submit "Save orders"
