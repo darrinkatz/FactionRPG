@@ -9,7 +9,7 @@ gem 'rails', '4.0.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
-gem 'simple_form'
+gem "simple_form", "~> 3.0.0.rc"
 gem 'haml'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -48,6 +48,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'rspec-rails', group: [:test, :development]
+gem 'factory_girl_rails', group: [:test, :development]
 
 gem 'capybara', group: :test
 
