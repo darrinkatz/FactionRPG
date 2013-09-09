@@ -19,7 +19,7 @@ feature "create faction:" do
     expect(page).to have_content "5-Szadek (covert)"
   end
 
-  scenario "user starts first turn, sets orders, and processes" do
+  scenario "user starts first turn, sets orders, and processes", js: true do
     user_creates_a_faction "House Dimir", "dimir@example.com"
     user_creates_asset_from_faction_page "Szadek", 5, covert: true
     user_creates_asset_from_faction_page "Duskmantle", 4, covert: true
