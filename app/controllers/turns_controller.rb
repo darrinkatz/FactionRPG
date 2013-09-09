@@ -17,6 +17,10 @@ class TurnsController < ApplicationController
 
   def finalize
     @turn = TurnProcessor.new(Turn.current).finalize
+    respond_to do |format|
+      format.html
+      format.json { render json: @turn }
+    end
   end
 
   private
