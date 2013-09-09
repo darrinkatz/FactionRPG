@@ -4,9 +4,11 @@ describe "factions/index.html.haml" do
   before do
     Turn.stub(:current).and_return current_turn
     Turn.stub(:count).and_return turn_count
+    assign(:factions, factions)
     render
   end
   let(:turn_count) { 1 }
+  let(:factions) { [] }
 
   context "when there are no turns in progress" do
     let(:current_turn) { nil }
@@ -53,6 +55,23 @@ describe "factions/index.html.haml" do
 
     it "shows a button to process the turn" do
       expect(rendered).to include "Process Turn #2"
+    end
+  end
+
+  context "when factions have been created" do
+    let(:current_turn) { nil }
+    let(:turn_count) { 0 }
+    let(:factions) do [
+      stub_model(
+        Faction,
+        id: 1,
+        faction_name: 'House Dimir'
+        )
+      ]
+    end
+
+    it "lists existing faction" do
+      expect(rendered).to include "House Dimir"
     end
   end
 end

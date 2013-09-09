@@ -1,5 +1,9 @@
 %h2 factions
 
+%ul
+  - @factions.each do |faction|
+    %li= faction.faction_name
+
 %p= link_to("create faction", new_faction_path)
 
 - if current_turn = Turn.current
