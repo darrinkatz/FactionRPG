@@ -8,8 +8,10 @@
 
 - if current_turn = Turn.current
   %p= link_to "Set orders", edit_turn_path(current_turn)
-  = simple_form_for current_turn, url: finalize_turn_path(current_turn) do |f|
+  -# = simple_form_for current_turn, url: finalize_turn_path(current_turn) do |f|
     = f.submit "Process Turn ##{current_turn.number}"
+  = link_to_function "Process Turn ##{current_turn.number}", "finalize_turn('#{finalize_turn_path(current_turn)}.json')"
 - else
   = simple_form_for Turn.new do |f|
     = f.submit "Start Turn ##{Turn.count + 1}"
+.results
