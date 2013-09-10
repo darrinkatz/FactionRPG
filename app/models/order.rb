@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  belongs_to :turn
+  belongs_to :scenario
   belongs_to :asset
   belongs_to :target, class_name: "Asset"
 
