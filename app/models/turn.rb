@@ -4,14 +4,12 @@ class Turn < ActiveRecord::Base
 
   accepts_nested_attributes_for :orders
 
-  scope :in_progress, -> { where(state: "in_progress") }
-
   def self.current
-    in_progress.first
+    self.last
   end
 
   def self.start_next_turn
-    turn = self.create(state: :in_progress, number: self.count + 1)
+    turn = self.create(number: self.count + 1)
     Asset.all.each do |asset|
       turn.orders.create(asset: asset, type: "Attack")
     end
