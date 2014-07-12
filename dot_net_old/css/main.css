@@ -1,0 +1,133 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.covert
+{
+    opacity:0.5;
+}
+.actor, .target, .action-header
+{
+    position: relative;
+    height: 140px;
+}
+.actors .row, .action, .actor
+{
+    margin-bottom: 10px;
+}
+.avatar
+{
+    margin: 5px;
+    height: 130px;
+    overflow: hidden;
+}
+.container
+{
+    background: #ECECEC;
+}
+.header
+{
+    background-image: url(/img/bg.jpg);
+    background-repeat: repeat-y;
+}
+.footer
+{
+    background-image: url(/img/bg.jpg);
+    background-repeat: repeat-y;
+}
+.footer p
+{
+    margin: 0px 0px 0px;
+}
+.scene
+{
+    border: 2px solid black;
+}
+.actor .status-icons
+{
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    max-width: 75px;
+}
+.actor .special-icons
+{
+    position: absolute;
+    bottom: 4px;
+    right: 6px;
+    text-align: right;
+}
+.actor .value
+{
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    text-align: right;
+    background: white;
+    padding: 0.2em;
+}
+.actor .value span
+{
+    font-weight: 900;
+}
+.status-icons i, .special-icons i
+{
+    background-color: #fff;
+    border: 1px solid #CCC;
+}
+.special-icons .icon-white
+{
+    background-color: #000;
+    border: 1px solid #CCC;
+}
+.action-set
+{
+    padding: 10px 0;
+    border-bottom: 1px solid black;
+}
+.ui-draggable-dragging
+{
+    z-index: 1000;
+}
+.actor-highlight
+{
+    outline: 5px solid yellow;
+}
+.actor .dropzone
+{
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #666;
+    display: none;
+}
+.actor .dropzone-damage
+{
+    background-image: url(../img/glyphicons/glyphicons_022_fire.png);
+    width: 20px;
+    height: 26px;
+    top: 25px;
+    left: 25px;
+}
+.actor .dropzone-enhance
+{
+    background-image: url(../img/glyphicons/glyphicons_280_settings.png);
+    width: 24px;
+    height: 24px;
+    top: 25px;
+    right: 25px;
+}
+.actor .dropzone-shroud
+{
+    background-image: url(../img/glyphicons/glyphicons_052_eye_close.png);
+    width: 31px;
+    height: 24px;
+    bottom: 25px;
+    right: 25px;
+}
+.actor .dropzone-infiltrate
+{
+    background-image: url(../img/glyphicons/glyphicons_204_unlock.png);
+    width: 21px;
+    height: 26px;
+    bottom: 25px;
+    left: 25px;
+}
