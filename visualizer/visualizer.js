@@ -1,7 +1,7 @@
 function extractAssets(turn)
 {
 	var turnObj = JSON.parse(turn);
-	var faction = turnObj["faction"];
+	var faction = turnObj["perspective"];
 	var assets = turnObj["assets"];
 	
 	var result = JSON.parse(turn);
