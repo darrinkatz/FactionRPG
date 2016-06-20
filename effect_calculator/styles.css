@@ -1,0 +1,44 @@
+* {
+	font-size: 20px;
+}
+
+body {
+	background-color: grey;
+	width: 320px;
+}
+
+.param {
+	float: right;
+	width: 200px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+
+   opacity: 1;
+
+}
+
+#result {
+	font-weight: bold;
+}
+
+.success {
+	background-color: green;
+}
+
+.fail_by_1 {
+	background-color: royalblue;
+}
+
+.fail_by_2 {
+	background-color: gold;
+}
+
+.fail_by_3 {
+	background-color: darkorange;
+}
+
+.fail_by_4 {
+	background-color: red;
+}

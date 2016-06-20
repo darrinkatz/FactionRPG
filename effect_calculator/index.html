@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Naturax's M&M3e Result Calculator</title>
+		<meta name="description" content="Naturax's M&M3e Result Calculator">
+		<meta name="author" content="Naturax">
+		<link rel="stylesheet" href="styles.css?v=1.0.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<div>
+			<p>
+				<span>Effect:</span>
+				<select id="effect" class="param">
+					<option value="damage">Damage</option>
+					<option value="charm">Charm</option>
+					<option value="sleep">Sleep</option>
+					<option value="paralyze">Paralyze</option>
+					<option value="weaken">Weaken</option>																		
+				</select>
+			</p>
+			<p>
+				<span>Difficulty:</span>
+				<input id="difficulty" class="param" type="number" value="15" />
+			</p>
+			<p>
+				<span>Resistance:</span>
+				<input id="resistance" class="param" type="number" value="15" />
+			</p>
+		</div>
+		<div id="result" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script src="scripts.js"></script>
+	</body>
+</html>
