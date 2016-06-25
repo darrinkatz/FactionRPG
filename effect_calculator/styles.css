@@ -7,9 +7,13 @@ body {
 	width: 320px;
 }
 
+#span_outcome {
+	float: left;
+}
+
 .param {
 	float: right;
-	width: 200px;
+	width: 220px;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -19,8 +23,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 }
 
-#result {
+#outcome {
 	font-weight: bold;
+	float: right;
+	width: 220px;
 }
 
 .success {
