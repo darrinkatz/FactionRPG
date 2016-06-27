@@ -4,36 +4,65 @@
 		<meta charset="utf-8">
 		<title>Naturax's M&M3e Result Calculator</title>
 		<meta name="description" content="Naturax's M&M3e Result Calculator">
-		<meta name="author" content="Naturax">
-		<link rel="stylesheet" href="styles.css?v=1.0.0">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body>
-		<div>
-			<p>
-				<span>Check:</span>
-				<select id="check" class="param">
-					<option value="attack">Attack Roll</option>
-					<option value="skill">Skill Check</option>
-					<option value="damage">Resist Damage</option>
-					<option value="charm">Resist Charm</option>
-					<option value="sleep">Resist Sleep</option>
-					<option value="paralyze">Resist Paralyze</option>
-					<option value="weaken">Resist Weaken</option>																		
-				</select>
-			</p>
-			<p>
-				<span>Difficulty:</span>
-				<input id="difficulty" class="param" type="number" value="20" />
-			</p>
-			<p>
-				<span>Result:</span>
-				<input id="result" class="param" type="number" value="20" />
-			</p>
-			<p>
-				<span id="span_outcome">Outcome:</span>
-				<div id="outcome" />
-			</p>
+		<div id="calculator">
+			<table>
+				<tr>
+					<td>
+						Check:
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<select id="check" class="param">
+							<option value="attack">Attack</option>
+							<option value="skill">Skill</option>
+							<option value="damage">Damage</option>
+							<option value="charm">Charm</option>
+							<option value="drain">Drain</option>
+							<option value="petrify">Petrify</option>
+							<option value="weaken">Weaken</option>																		
+						</select>						
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Difficulty:
+					</td>
+				</tr>
+				<tr>					
+					<td>
+						<input id="diff_up" type="button" value="+" />
+						<input id="difficulty" class="param" type="text" value="20" disabled />
+						<input id="diff_down" type="button" value="-" />
+					</td>					
+				</tr>
+				<tr>
+					<td>
+						Result:
+					</td>
+				</tr>
+				<tr>					
+					<td>
+						<input id="result_up" type="button" value="+" />
+						<input id="result" class="param" type="text" value="20" disabled />
+						<input id="result_down" type="button" value="-" />
+					</td>					
+				</tr>
+				<tr>
+					<td>
+						<span id="span_outcome">Outcome:</span>
+					</td>
+				</tr>
+				<tr>					
+					<td>
+						<div id="outcome" />
+					</td>					
+				</tr>
+			</table>
 		</div>
 		<!-- script tags -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>

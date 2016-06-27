@@ -1,13 +1,44 @@
 var data;
+var timeout_id = 0;
+var hold_time = 200;
 
 $(document).ready(function(){
 	
-	$("select").change(updateOutcome);
-	$("input").change(updateOutcome);
+	$( "select" ).change(updateOutcome);
+	$( "input" ).mousedown(function() {
+		var buttonName = $(this).attr("id");
+		updateNumbers(buttonName);
+		timeout_id = setInterval(updateNumbers, hold_time, buttonName);
+	}).bind('mouseup mouseleave touchend', function() {
+		clearInterval(timeout_id);
+	});
 
 	data = loadData();
 	updateOutcome();
 });
+
+function updateNumbers(buttonName) {
+
+	if (buttonName == "diff_up") {
+		var oldVal = Number($( "#difficulty" ).val());
+		var newVal = oldVal + 1;
+		$( "#difficulty" ).val(newVal);
+	} else if (buttonName == "diff_down") {
+		var oldVal = Number($( "#difficulty" ).val());
+		var newVal = oldVal - 1;
+		$( "#difficulty" ).val(newVal);		
+	} else if (buttonName == "result_up") {
+		var oldVal = Number($( "#result" ).val());
+		var newVal = oldVal + 1;
+		$( "#result" ).val(newVal);		
+	} else if (buttonName == "result_down") {
+		var oldVal = Number($( "#result" ).val());
+		var newVal = oldVal - 1;
+		$( "#result" ).val(newVal);		
+	} 
+		
+	updateOutcome();
+}
 
 function updateOutcome() {
 	
@@ -18,14 +49,12 @@ function updateOutcome() {
 	var resultValue =  $( "#result" ).val();
 	
 	var difference = resultValue - difficultyValue;
+	var numSuccesses = Math.floor((difference + 5) / 5);
 	
-	if (difference >= 0) {
+	if (checkValue == "attack") {
 		
-		var numSuccesses = Math.floor((difference + 5) / 5);
-		
-		$( "#outcome" ).removeClass().addClass("success");
-		
-		if (checkValue == "attack") {
+		if (difference >= 0) {
+			
 			if (numSuccesses == 1) {
 				outcome += data["attack"][0];
 			} else if (numSuccesses == 2) {
@@ -33,33 +62,40 @@ function updateOutcome() {
 			} else {
 				outcome += data["attack"][2];
 			}
-		} else if (checkValue == "skill") {
-			outcome += numSuccesses + " degrees of Success";
-		} else {
-			outcome += "Resisted";
-		}
-		
-	} else {
-		
-		var numFailures = Math.floor(difference / 5) * -1;
+			
+			$( "#outcome" ).removeClass().addClass("success");
 
-		if (checkValue == "attack") {
+		} else {
 			outcome += "Miss";
 			$( "#outcome" ).removeClass().addClass("fail_by_4");
-		} else if (checkValue == "skill") {
-			outcome += numFailures + " degrees of Failure";
-			$( "#outcome" ).removeClass().addClass("fail_by_4");
+		}
+		
+	} else if (checkValue == "skill") {
+		
+		if (difference >= 0) {
+			outcome += numSuccesses + " degrees of Success";
+			$( "#outcome" ).removeClass().addClass("success");
 		} else {
-			if (difference < 0 && difference >= -5){
+			outcome += ((numSuccesses - 1) * -1) + " degrees of Failure";
+			$( "#outcome" ).removeClass().addClass("fail_by_4");
+		}
+	
+	} else {
+		
+		if (difference >= 5) {
+			outcome += "Resisted";
+			$( "#outcome" ).removeClass().addClass("success");
+		} else {
+			if (difference < 5 && difference >= 0){
 				outcome += data[checkValue][0];
 				$( "#outcome" ).removeClass().addClass("fail_by_1");
-			} else if (difference < -5 && difference >= -10) {
+			} else if (difference < 0 && difference >= -5) {
 				outcome += data[checkValue][1];
 				$( "#outcome" ).removeClass().addClass("fail_by_2");
-			} else if (difference < -10 && difference >= -15) {
+			} else if (difference < -5 && difference >= -10) {
 				outcome += data[checkValue][2];	
 				$( "#outcome" ).removeClass().addClass("fail_by_3");			
-			} else if (difference < -15) {
+			} else if (difference < -10) {
 				outcome += data[checkValue][3];
 				$( "#outcome" ).removeClass().addClass("fail_by_4");
 			}
@@ -74,11 +110,11 @@ function loadData() {
 	var data = new Array();
 	
 	data["attack"] = new Array("Hit", "Hit + Multiattack DC+2", "Hit + Multiattack DC+5");
-	data["damage"] = new Array("Injury", "Injury + Dazed", "Injury + Staggered", "Injury + Incapacitated");
-	data["charm"] = new Array("Injury", "Injury + Entranced", "Injury + Compelled", "Injury + Controlled");
-	data["sleep"] = new Array("Injury", "Injury + Fatigued", "Injury + Exhausted", "Injury + Asleep");
-	data["paralyze"] = new Array("Injury", "Injury + Hindered", "Injury + Stunned", "Injury + Paralyzed");
-	data["weaken"] = new Array("Injury", "Injury + Trait -2", "Injury + Trait -5", "Injury + Trait Fails");
+	data["damage"] = new Array("Injured", "Injured + Dazed", "Injured + Staggered", "Injured + Incapacitated");
+	data["charm"] = new Array("Injured", "Injured + Entranced", "Injured + Compelled", "Injured + Controlled");
+	data["drain"] = new Array("Injured", "Injured + Fatigued", "Injured + Exhausted", "Injured + Comatose");
+	data["petrify"] = new Array("Injured", "Injured + Hindered", "Injured + Stunned", "Injured + Inert");
+	data["weaken"] = new Array("Injured", "Injured + Trait -2", "Injured + Trait -5", "Injured + Trait Fails");
 	
 	return data;
 }

@@ -1,32 +1,31 @@
-* {
-	font-size: 20px;
-}
-
 body {
+	background-color: black;
+	font-size: 20px;
+	width: 260px;
+}
+
+select {
+	font-size: 50px;
+}
+
+input {
+	height: 80px;
+	width: 80px;
+	font-size: 50px;
+	text-align: center;
+}
+
+#calculator {
 	background-color: grey;
-	width: 320px;
 }
 
-#span_outcome {
-	float: left;
-}
-
-.param {
-	float: right;
-	width: 220px;
-}
-
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button {  
-
-   opacity: 1;
-
+#check {
+	width: 100%;
 }
 
 #outcome {
+	font-size: 50px;
 	font-weight: bold;
-	float: right;
-	width: 220px;
 }
 
 .success {
