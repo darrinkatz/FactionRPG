@@ -112,8 +112,8 @@ function loadData() {
 	data["attack"] = new Array("Hit", "Hit + Multiattack DC+2", "Hit + Multiattack DC+5");
 	data["damage"] = new Array("Injured", "Injured + Dazed", "Injured + Staggered", "Injured + Incapacitated");
 	data["charm"] = new Array("Injured", "Injured + Entranced", "Injured + Compelled", "Injured + Controlled");
-	data["drain"] = new Array("Injured", "Injured + Fatigued", "Injured + Exhausted", "Injured + Comatose");
-	data["petrify"] = new Array("Injured", "Injured + Hindered", "Injured + Stunned", "Injured + Inert");
+	data["exhaust"] = new Array("Injured", "Injured + Fatigued", "Injured + Exhausted", "Injured + Comatose");
+	data["petrify"] = new Array("Injured", "Injured + Immobile", "Injured + Stunned", "Injured + Inert");
 	data["weaken"] = new Array("Injured", "Injured + Trait -2", "Injured + Trait -5", "Injured + Trait Fails");
 	
 	return data;
