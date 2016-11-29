@@ -53,6 +53,9 @@ function updateOutcome() {
 	
 	if (checkValue == "attack") {
 		
+		$( "#diff_label" ).html("Dodge/Parry DC");
+		$( "#result_label" ).html("Combat Check");
+		
 		if (difference >= 0) {
 			
 			if (numSuccesses == 1) {
@@ -72,6 +75,9 @@ function updateOutcome() {
 		
 	} else if (checkValue == "skill") {
 		
+		$( "#diff_label" ).html("Skill DC");
+		$( "#result_label" ).html("Skill Check");
+		
 		if (difference >= 0) {
 			outcome += numSuccesses + " degrees of Success";
 			$( "#outcome" ).removeClass().addClass("success");
@@ -81,6 +87,9 @@ function updateOutcome() {
 		}
 	
 	} else {
+		
+		$( "#diff_label" ).html("Power DC");
+		$( "#result_label" ).html("Resistance Check");
 		
 		if (difference >= 5) {
 			outcome += "Resisted";
