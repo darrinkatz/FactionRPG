@@ -2,13 +2,58 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Naturax's M&M3e Result Calculator</title>
-		<meta name="description" content="Naturax's M&M3e Result Calculator">
+		<title>Naturax's Gaming Utilities</title>
+		<meta name="description" content="Naturax's Gaming Utilities">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body>
-		<div id="calculator">
+		<div id="academy_man">
+			<span>
+				Academy Man Calculator
+			</span>
+			<table>
+				<tr>
+					<td>
+						If you control
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input id="man_down" type="button" value="-" />
+						<input id="academy_mans" class="param" type="text" value="1" disabled />
+						<input id="man_up" type="button" value="+" />
+					</td>						
+				</tr>
+				<tr>
+					<td>
+						Academy Mans, if you would create
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input id="token_down" type="button" value="-" />
+						<input id="tokens" class="param" type="text" value="1" disabled />
+						<input id="token_up" type="button" value="+" />
+					</td>						
+				</tr>
+				<tr>
+					<td>
+						Clues, Foods, or Treasures, instead create
+					</td>
+				</tr>				
+				<tr>
+					<td>
+						<div id="instead" />
+					</td>					
+				</tr>
+			</table>
+		</div>
+		<hr />
+		<div id="mm3e_result">
+			<span>
+				Naturax's Homebrew M&M3e Result Calculator
+			</span>
 			<table>
 				<tr>
 					<td>
@@ -37,9 +82,9 @@
 				</tr>
 				<tr>					
 					<td>
-						<input id="diff_up" type="button" value="+" />
-						<input id="difficulty" class="param" type="text" value="20" disabled />
 						<input id="diff_down" type="button" value="-" />
+						<input id="difficulty" class="param" type="text" value="20" disabled />
+						<input id="diff_up" type="button" value="+" />
 					</td>					
 				</tr>
 				<tr>
@@ -51,9 +96,9 @@
 				</tr>
 				<tr>					
 					<td>
-						<input id="result_up" type="button" value="+" />
-						<input id="result" class="param" type="text" value="20" disabled />
 						<input id="result_down" type="button" value="-" />
+						<input id="result" class="param" type="text" value="20" disabled />
+						<input id="result_up" type="button" value="+" />
 					</td>					
 				</tr>
 				<tr>

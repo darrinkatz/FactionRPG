@@ -14,10 +14,30 @@ $(document).ready(function(){
 	});
 
 	data = loadData();
+
+	updateInstead();
 	updateOutcome();
 });
 
 function updateNumbers(buttonName) {
+	
+	if (buttonName == "man_up") {
+		var oldVal = Number($( "#academy_mans" ).val());
+		var newVal = oldVal + 1;
+		$( "#academy_mans" ).val(newVal);
+	} else if (buttonName == "man_down") {
+		var oldVal = Number($( "#academy_mans" ).val());
+		var newVal = Math.max(oldVal - 1, 1);
+		$( "#academy_mans" ).val(newVal);		
+	} else if (buttonName == "token_up") {
+		var oldVal = Number($( "#tokens" ).val());
+		var newVal = oldVal + 1;
+		$( "#tokens" ).val(newVal);		
+	} else if (buttonName == "token_down") {
+		var oldVal = Number($( "#tokens" ).val());
+		var newVal = Math.max(oldVal - 1, 1);
+		$( "#tokens" ).val(newVal);		
+	} 
 
 	if (buttonName == "diff_up") {
 		var oldVal = Number($( "#difficulty" ).val());
@@ -35,9 +55,22 @@ function updateNumbers(buttonName) {
 		var oldVal = Number($( "#result" ).val());
 		var newVal = oldVal - 1;
 		$( "#result" ).val(newVal);		
-	} 
-		
+	}
+	
+	updateInstead();
 	updateOutcome();
+}
+
+function updateInstead() {
+	
+	var instead = "";
+	
+	var mansValue = $( "#academy_mans" ).val();
+	var tokensValue = $( "#tokens" ).val();
+	
+	var replacement = Math.pow(3, mansValue - 1) * tokensValue;
+	
+	$( "#instead" ).html(replacement + " of each");
 }
 
 function updateOutcome() {
