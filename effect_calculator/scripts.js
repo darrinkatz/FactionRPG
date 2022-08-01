@@ -15,11 +15,30 @@ $(document).ready(function(){
 
 	data = loadData();
 
+	updateDoS();
 	updateInstead();
 	updateOutcome();
 });
 
 function updateNumbers(buttonName) {
+
+	if (buttonName == "mmx5e_check_up") {
+		var oldVal = Number($( "#mmx5e_check" ).val());
+		var newVal = oldVal + 1;
+		$( "#mmx5e_check" ).val(newVal);
+	} else if (buttonName == "mmx5e_check_down") {
+		var oldVal = Number($( "#mmx5e_check" ).val());
+		var newVal = Math.max(oldVal - 1, 1);
+		$( "#mmx5e_check" ).val(newVal);		
+	} else if (buttonName == "mmx5e_dc_up") {
+		var oldVal = Number($( "#mmx5e_dc" ).val());
+		var newVal = oldVal + 1;
+		$( "#mmx5e_dc" ).val(newVal);		
+	} else if (buttonName == "mmx5e_dc_down") {
+		var oldVal = Number($( "#mmx5e_dc" ).val());
+		var newVal = Math.max(oldVal - 1, 1);
+		$( "#mmx5e_dc" ).val(newVal);		
+	} 
 	
 	if (buttonName == "man_up") {
 		var oldVal = Number($( "#academy_mans" ).val());
@@ -57,8 +76,30 @@ function updateNumbers(buttonName) {
 		$( "#result" ).val(newVal);		
 	}
 	
+	updateDoS();
 	updateInstead();
 	updateOutcome();
+}
+
+function updateDoS() {
+
+	var mmx5e_dos = "";
+	
+	var mmx5e_dc = $( "#mmx5e_dc" ).val();
+	var mmx5e_check =  $( "#mmx5e_check" ).val();
+	
+	var difference = mmx5e_check - mmx5e_dc;
+	var numSuccesses = Math.floor((difference) / 5) + 1;
+	
+	if (difference >= 0) {
+		mmx5e_dos += "Success: " + numSuccesses + " DoS";
+		$( "#mmx5e_dos" ).removeClass().addClass("success");
+	} else {
+		mmx5e_dos += "Failure: 0 DoS";
+		$( "#mmx5e_dos" ).removeClass().addClass("fail_by_4");
+	}
+	
+	$( "#mmx5e_dos" ).html(mmx5e_dos);
 }
 
 function updateInstead() {
